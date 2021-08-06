@@ -25,7 +25,7 @@ namespace API.Controllers
 
         // api/users/3
         [HttpGet("{id}")]
-        public async Task<ActionResult<BankUser>> GetUserById([FromRoute] int id)
+        public async Task<ActionResult<BankUser>> GetUserById(int id)
         {
             var user = _userRepo.GetUserByIdAsync(id);
             return await user;

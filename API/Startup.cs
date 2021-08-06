@@ -1,7 +1,10 @@
 using API.AppInterfaces;
 using API.Data;
+using API.Entities;
+using API.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -28,7 +31,12 @@ namespace API
                 options.UseSqlite(_config.GetConnectionString("DefaultConnection")); 
                 // arg as param -> lambda --> Connection to db
             });
+
+            services.AddAutoMapper(this.GetType().Assembly);
             services.AddScoped<IBankUserRepo, BankUserRepo>();
+            services.AddScoped<IAccountService, AccountService>();
+            services.AddScoped<IPasswordHasher<BankUser>, PasswordHasher<BankUser>>();
+            services.AddScoped<BankUserSeeder>();
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "API", Version = "v1" });
@@ -38,8 +46,10 @@ namespace API
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, BankUserSeeder seeder)
         {
+            seeder.SeedUsers();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
