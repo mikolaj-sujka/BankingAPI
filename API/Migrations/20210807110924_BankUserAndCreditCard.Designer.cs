@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210806184448_BankUserAndCreditCard")]
+    [Migration("20210807110924_BankUserAndCreditCard")]
     partial class BankUserAndCreditCard
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -43,9 +43,6 @@ namespace API.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("LastName")
-                        .HasColumnType("TEXT");
-
-                    b.Property<string>("Password")
                         .HasColumnType("TEXT");
 
                     b.Property<string>("PasswordHash")

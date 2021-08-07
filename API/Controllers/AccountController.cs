@@ -13,32 +13,28 @@ namespace API.Controllers
     public class AccountController : BaseController
     {
         private readonly IAccountService _accountService;
-        private readonly DataContext _dataContext;
 
-        public AccountController(IAccountService accountService, DataContext dataContext)
+        public AccountController(IAccountService accountService)
         {
             _accountService = accountService;
-            _dataContext = dataContext;
         }
 
         [HttpPost("register")]
-        public async Task<ActionResult<BankUser>> Register(RegisterDto dto)
+        public async Task<ActionResult<BankUserDto>> Register(RegisterDto dto)
         {
             var newUser = await _accountService.Register(dto);
             if (newUser == null) return BadRequest("Username or Email is taken!");
 
-            await _dataContext.Users.AddAsync(newUser);
-            await _dataContext.SaveChangesAsync();
             return Ok(newUser);
         }
 
         [HttpPost("login")]
-        public async Task<ActionResult<BankUser>> Login(LoginDto dto)
+        public async Task<ActionResult<BankUserDto>> Login(LoginDto dto)
         {
             var userExists = await _accountService.Login(dto);
             if (userExists == null) return BadRequest("User does not exist or " +
                                                       "Username/Password provided wrongly!");
-            return Ok("Successfully logged in!");
+            return Ok(userExists);
         }
     }
 }

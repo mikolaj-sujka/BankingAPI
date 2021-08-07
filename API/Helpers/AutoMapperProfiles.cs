@@ -40,6 +40,11 @@ namespace API.Helpers
                 .ForMember(m => m.Email, 
                     c =>
                     c.MapFrom(s => s.Email));
+
+            CreateMap<RegisterDto, BankUserDto>()
+                .ForMember(m => m.Username,
+                    c =>
+                        c.MapFrom(s => s.UserName));
         }
     }
 }

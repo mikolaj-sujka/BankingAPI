@@ -42,7 +42,7 @@ namespace API.Data
                     Email = "test@test.com",
                     FirstName = "Alexander",
                     LastName = "Gustaf",
-                    Password = "Password123",
+                    PasswordHash = " $2a$12$67.bAQvDAe91e/qR2TMZhu3EQIX9JjKsUXefApbolC3IYW9cVgLKW ",
                     Pin = "1111",
                     PostalCode = "33-209"
                 },
@@ -59,7 +59,7 @@ namespace API.Data
                     Email = "test@o23.com",
                     FirstName = "Tom",
                     LastName = "Dom",
-                    Password = "Password12345",
+                    PasswordHash = " $2a$12$R1Fm7MBmt5MXEtZr0woK0.tbY8JGZIUqbxzJ8wT.bL1OoKkm3UBCu",
                     Pin = "3215",
                     PostalCode = "28-112"
                 }

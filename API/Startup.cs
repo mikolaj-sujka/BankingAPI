@@ -29,9 +29,9 @@ namespace API
             services.AddDbContext<DataContext>(options =>
             {
                 options.UseSqlite(_config.GetConnectionString("DefaultConnection")); 
-                // arg as param -> lambda --> Connection to db
             });
 
+            services.AddScoped<ITokenService, TokenService>();
             services.AddAutoMapper(this.GetType().Assembly);
             services.AddScoped<IBankUserRepo, BankUserRepo>();
             services.AddScoped<IAccountService, AccountService>();

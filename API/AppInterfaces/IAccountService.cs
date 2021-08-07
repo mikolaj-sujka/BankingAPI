@@ -10,7 +10,7 @@ namespace API.AppInterfaces
 {
     public interface IAccountService
     {
-        public Task<BankUser> Register(RegisterDto dto);
-        public Task<BankUser> Login(LoginDto dto);
+        public Task<BankUserDto> Register(RegisterDto dto);
+        public Task<BankUserDto> Login(LoginDto dto);
     }
 }
