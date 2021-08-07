@@ -1,10 +1,10 @@
 ﻿
 using API.AppInterfaces;
-using API.Data;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 
 namespace API.Controllers
 {
@@ -23,6 +23,7 @@ namespace API.Controllers
             return await _userRepo.GetUsersAsync();
         }
 
+        [Authorize]
         // api/users/3
         [HttpGet("{id}")]
         public async Task<ActionResult<BankUser>> GetUserById(int id)
