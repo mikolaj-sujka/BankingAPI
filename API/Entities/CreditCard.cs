@@ -10,7 +10,7 @@ namespace API.Entities
         public CreditCard()
         {
             this.CardNumber = GenerateCardNumber();
-            this.DateExpires = new DateTime(2027, 3, 22);
+            this.DateExpires = DateTime.Now.AddYears(4);
         }
         public int Id { get; set; }
         public string CardNumber { get; set; }

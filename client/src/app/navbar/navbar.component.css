@@ -1,0 +1,73 @@
+/* Links */
+.navbar-nav li a:hover{
+    color: #00008B;
+}
+
+.navbar-nav li a {
+    transition: all 0.3s ease 0s;
+}
+
+.left-right{
+    display: inline-block;
+    position: relative;
+    color: #00008B;
+    cursor: pointer;
+}
+
+.left-right::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: #00008B;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+  }
+.left-right:hover::after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+/* Button Login */
+a.btn {
+    display: inline-block;
+    padding: 0.2rem 2rem;
+    text-decoration: none;
+    border-radius: 50px;
+    color: white;
+}
+
+.btn-swipe {
+    position: relative;
+    background-color: #00008B;
+    z-index: 0;
+    overflow: hidden;
+    transition: color 0.3s cubic-bezier(0, .25, .5, 1);
+}
+
+  
+.btn-swipe:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+    width: 100%;
+    transform: translateX(-115%);
+    transition: all 0.3s cubic-bezier(0, .25, .5, 1);
+    background-color: #fff;
+}
+
+.btn-swipe:hover::before,
+.btn-swipe:active::before {
+  transform: translateX(0) scaleX(1.15);
+}
+
+.btn-swipe:hover,
+.btn-swipe:active {
+  color: #00008B;
+}
