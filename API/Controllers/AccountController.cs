@@ -27,7 +27,7 @@ namespace API.Controllers
         public async Task<ActionResult<BankUserDto>> Login(LoginDto dto)
         {
             var userExists = await _accountService.Login(dto);
-            if (userExists == null) return BadRequest("User does not exist or " +
+            if (userExists == null) return Unauthorized("User does not exist or " +
                                                       "Username/Password provided wrongly!");
             return Ok(userExists);
         }

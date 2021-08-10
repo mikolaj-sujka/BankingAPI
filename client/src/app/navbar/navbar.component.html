@@ -3,7 +3,7 @@
         fixed-top">
   <div class="container">
       <img src="/assets/img/logo.svg" href="#" alt="" width="50" height="44">
-      <a href="#" class="navbar-brand">iFBB BA</a>
+      <a routerLink='/' class="navbar-brand">iFBB BA</a>
   
         <button
           class="navbar-toggler"
@@ -14,7 +14,7 @@
           <span class="navbar-toggler-icon"></span>
         </button>
   
-    <div class="collapse navbar-collapse d-flex" id="navmenu">
+    <div class="collapse navbar-collapse" id="navmenu">
         <ul class="navbar-nav mx-auto justify-content-center">
           <li class="nav-item">
             <a href="#about" class="nav-link left-right">About</a>
@@ -28,9 +28,9 @@
       </ul>
       <form class="d-flex" action="">
         <button class="btn" type="submit"><a class="btn btn-swipe" 
-          href="https://localhost:4200/login">Sign In</a></button>
+          routerLink='account/login' >Sign In</a></button>
         <button class="btn" type="submit"><a class="btn btn-swipe" 
-          href="https://localhost:4200/register">Sign Up</a></button>
+          routerLink='account/register'>Sign Up</a></button>
       </form>
     </div>
   </div>
