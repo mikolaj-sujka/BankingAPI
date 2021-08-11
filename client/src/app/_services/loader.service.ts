@@ -12,10 +12,10 @@ export class LoaderService {
   loading(){
     this.requestCount++;
     this.spinnerService.show(undefined, {
-      type: 'fire',
+      type: 'ball-spin',
       bdColor: 'rgba(255,255,255,0.8)',
       color: '#00008b',
-      size: "large",
+      size: "medium",
     })
   }
 

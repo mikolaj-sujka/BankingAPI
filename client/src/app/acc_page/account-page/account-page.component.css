@@ -2,7 +2,7 @@
     color: #00008B;
 }
 
-/* button sign out */
+/* button sign out/ delete */
 a.btn {
     display: inline-block;
     padding: 0.2rem 2rem;
@@ -16,6 +16,10 @@ a.btn {
     z-index: 0;
     overflow: hidden;
     transition: color 0.3s cubic-bezier(0, .25, .5, 1);
+}
+
+.btn-delete{
+  background-color: #B22222;
 }
 
   
