@@ -1,5 +1,4 @@
-﻿
-using API.AppInterfaces;
+﻿using API.AppInterfaces;
 using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;

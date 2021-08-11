@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using API.DTOs;
+﻿using API.DTOs;
 using API.Entities;
 using AutoMapper;
 
@@ -31,9 +27,6 @@ namespace API.Helpers
                 .ForMember(m => m.DateOfBirth, 
                     c =>
                     c.MapFrom(s => s.DateOfBirth))
-                .ForMember(m => m.Pin, 
-                    c =>
-                    c.MapFrom(s => s.Pin))
                 .ForMember(m => m.PostalCode, 
                     c =>
                     c.MapFrom(s => s.PostalCode))

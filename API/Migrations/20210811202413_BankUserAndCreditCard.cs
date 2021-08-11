@@ -14,7 +14,9 @@ namespace API.Migrations
                     Id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     CardNumber = table.Column<string>(type: "TEXT", nullable: true),
-                    DateExpires = table.Column<DateTime>(type: "TEXT", nullable: false)
+                    DateExpires = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Pin = table.Column<string>(type: "TEXT", nullable: true),
+                    Cvc = table.Column<string>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -29,7 +31,6 @@ namespace API.Migrations
                         .Annotation("Sqlite:Autoincrement", true),
                     UserName = table.Column<string>(type: "TEXT", nullable: true),
                     PasswordHash = table.Column<string>(type: "TEXT", nullable: true),
-                    Pin = table.Column<string>(type: "TEXT", nullable: true),
                     FirstName = table.Column<string>(type: "TEXT", nullable: true),
                     LastName = table.Column<string>(type: "TEXT", nullable: true),
                     Email = table.Column<string>(type: "TEXT", nullable: true),

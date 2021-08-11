@@ -46,9 +46,6 @@ namespace API.Migrations
                     b.Property<string>("PasswordHash")
                         .HasColumnType("TEXT");
 
-                    b.Property<string>("Pin")
-                        .HasColumnType("TEXT");
-
                     b.Property<string>("PostalCode")
                         .HasColumnType("TEXT");
 
@@ -71,7 +68,13 @@ namespace API.Migrations
                     b.Property<string>("CardNumber")
                         .HasColumnType("TEXT");
 
+                    b.Property<string>("Cvc")
+                        .HasColumnType("TEXT");
+
                     b.Property<DateTime>("DateExpires")
+                        .HasColumnType("TEXT");
+
+                    b.Property<string>("Pin")
                         .HasColumnType("TEXT");
 
                     b.HasKey("Id");

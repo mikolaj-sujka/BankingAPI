@@ -43,7 +43,6 @@ namespace API.Data
                     FirstName = "Alexander",
                     LastName = "Gustaf",
                     PasswordHash = " $2a$12$67.bAQvDAe91e/qR2TMZhu3EQIX9JjKsUXefApbolC3IYW9cVgLKW ",
-                    Pin = "1111",
                     PostalCode = "33-209"
                 },
                 new BankUser()
@@ -60,7 +59,6 @@ namespace API.Data
                     FirstName = "Tom",
                     LastName = "Dom",
                     PasswordHash = " $2a$12$R1Fm7MBmt5MXEtZr0woK0.tbY8JGZIUqbxzJ8wT.bL1OoKkm3UBCu",
-                    Pin = "3215",
                     PostalCode = "28-112"
                 }
             };

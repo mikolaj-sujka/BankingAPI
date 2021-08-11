@@ -5,7 +5,6 @@ using API.DTOs;
 using API.Entities;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Services
@@ -41,7 +40,6 @@ namespace API.Services
                 LastName = user.LastName,
                 City = user.City,
                 Country = user.Country,
-                Pin = user.Pin,
                 PostalCode = user.PostalCode,
                 CreditCard = new CreditCard()
             };
