@@ -38,6 +38,9 @@ namespace API.Helpers
                 .ForMember(m => m.Username,
                     c =>
                         c.MapFrom(s => s.UserName));
+
+            CreateMap<CreditCard, CreditCardDto>();
+            CreateMap<BankUser, MemberDto>();
         }
     }
 }

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace API.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20210811202413_BankUserAndCreditCard")]
+    [Migration("20210812174156_BankUserAndCreditCard")]
     partial class BankUserAndCreditCard
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -29,9 +29,6 @@ namespace API.Migrations
 
                     b.Property<string>("Country")
                         .HasColumnType("TEXT");
-
-                    b.Property<int?>("CreditCardId")
-                        .HasColumnType("INTEGER");
 
                     b.Property<DateTime?>("DateOfBirth")
                         .HasColumnType("TEXT");
@@ -56,8 +53,6 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CreditCardId");
-
                     b.ToTable("Users");
                 });
 
@@ -65,6 +60,9 @@ namespace API.Migrations
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int>("BankUserId")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("CardNumber")
@@ -81,15 +79,25 @@ namespace API.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("BankUserId")
+                        .IsUnique();
+
                     b.ToTable("CreditCard");
+                });
+
+            modelBuilder.Entity("API.Entities.CreditCard", b =>
+                {
+                    b.HasOne("API.Entities.BankUser", "BankUser")
+                        .WithOne("CreditCard")
+                        .HasForeignKey("API.Entities.CreditCard", "BankUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("BankUser");
                 });
 
             modelBuilder.Entity("API.Entities.BankUser", b =>
                 {
-                    b.HasOne("API.Entities.CreditCard", "CreditCard")
-                        .WithMany()
-                        .HasForeignKey("CreditCardId");
-
                     b.Navigation("CreditCard");
                 });
 #pragma warning restore 612, 618

@@ -3,32 +3,36 @@ using API.Entities;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Authorization;
+using API.DTOs;
+using AutoMapper;
 
 namespace API.Controllers
 {
     public class UsersController : BaseController
     {
-        private readonly IBankUserRepo _userRepo;
+        private readonly IBankUserRepository _userRepo;
 
-        public UsersController(IBankUserRepo userRepo)
+        public UsersController(IBankUserRepository userRepo)
         {
             _userRepo = userRepo;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<BankUser>>> GetUsers()
+        public async Task<ActionResult<IEnumerable<MemberDto>>> GetUsers()
         {
-            return await _userRepo.GetUsersAsync();
+            return Ok(await _userRepo.GetMembersAsync());
         }
 
-        [Authorize]
-        // api/users/3
         [HttpGet("{id}")]
-        public async Task<ActionResult<BankUser>> GetUserById(int id)
+        public async Task<ActionResult<MemberDto>> GetUserById(int id)
         {
-            var user = _userRepo.GetUserByIdAsync(id);
-            return await user;
+            return await _userRepo.GetMemberByIdAsync(id);
+        }
+
+        [HttpGet("name/{username}")]
+        public async Task<ActionResult<MemberDto>> GetUserByUsername(string username)
+        {
+            return await _userRepo.GetMemberAsync(username);
         }
     }
 }

@@ -2,6 +2,7 @@ using System.Text;
 using API.AppInterfaces;
 using API.Data;
 using API.Entities;
+using API.Helpers;
 using API.Middleware;
 using API.Services;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -11,7 +12,6 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
 
@@ -36,10 +36,10 @@ namespace API
             });
 
             services.AddScoped<ITokenService, TokenService>();
-            services.AddAutoMapper(this.GetType().Assembly);
-            services.AddScoped<IBankUserRepo, BankUserRepo>();
+            services.AddScoped<IBankUserRepository, BankUserRepository>();
             services.AddScoped<IAccountService, AccountService>();
             services.AddScoped<IPasswordHasher<BankUser>, PasswordHasher<BankUser>>();
+            services.AddAutoMapper(typeof(AutoMapperProfiles).Assembly);
             services.AddScoped<BankUserSeeder>();
             services.AddSwaggerGen(c =>
             {

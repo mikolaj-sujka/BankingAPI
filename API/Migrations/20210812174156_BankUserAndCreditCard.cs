@@ -8,22 +8,6 @@ namespace API.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "CreditCard",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "INTEGER", nullable: false)
-                        .Annotation("Sqlite:Autoincrement", true),
-                    CardNumber = table.Column<string>(type: "TEXT", nullable: true),
-                    DateExpires = table.Column<DateTime>(type: "TEXT", nullable: false),
-                    Pin = table.Column<string>(type: "TEXT", nullable: true),
-                    Cvc = table.Column<string>(type: "TEXT", nullable: true)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_CreditCard", x => x.Id);
-                });
-
-            migrationBuilder.CreateTable(
                 name: "Users",
                 columns: table => new
                 {
@@ -37,33 +21,50 @@ namespace API.Migrations
                     PostalCode = table.Column<string>(type: "TEXT", nullable: true),
                     City = table.Column<string>(type: "TEXT", nullable: true),
                     Country = table.Column<string>(type: "TEXT", nullable: true),
-                    DateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: true),
-                    CreditCardId = table.Column<int>(type: "INTEGER", nullable: true)
+                    DateOfBirth = table.Column<DateTime>(type: "TEXT", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Users", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "CreditCard",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "INTEGER", nullable: false)
+                        .Annotation("Sqlite:Autoincrement", true),
+                    CardNumber = table.Column<string>(type: "TEXT", nullable: true),
+                    DateExpires = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    Pin = table.Column<string>(type: "TEXT", nullable: true),
+                    Cvc = table.Column<string>(type: "TEXT", nullable: true),
+                    BankUserId = table.Column<int>(type: "INTEGER", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_CreditCard", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Users_CreditCard_CreditCardId",
-                        column: x => x.CreditCardId,
-                        principalTable: "CreditCard",
+                        name: "FK_CreditCard_Users_BankUserId",
+                        column: x => x.BankUserId,
+                        principalTable: "Users",
                         principalColumn: "Id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Users_CreditCardId",
-                table: "Users",
-                column: "CreditCardId");
+                name: "IX_CreditCard_BankUserId",
+                table: "CreditCard",
+                column: "BankUserId",
+                unique: true);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Users");
+                name: "CreditCard");
 
             migrationBuilder.DropTable(
-                name: "CreditCard");
+                name: "Users");
         }
     }
 }

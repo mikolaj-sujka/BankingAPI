@@ -14,6 +14,9 @@ import { AccountPageComponent } from './acc_page/account-page/account-page.compo
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MemberEditComponent } from './acc_page/member-edit/member-edit.component';
+import { MemberCreditCardComponent } from './acc_page/member-credit-card/member-credit-card.component';
+import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -22,7 +25,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     HomeComponent,
     RegisterComponent,
     LoginComponent,
-    AccountPageComponent
+    AccountPageComponent,
+    MemberEditComponent,
+    MemberCreditCardComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +40,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
   ],
   bootstrap: [AppComponent]
 })

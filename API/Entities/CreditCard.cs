@@ -16,6 +16,8 @@ namespace API.Entities
         public DateTime DateExpires { get; set; }
         public string Pin { get; set; }
         public string Cvc { get; set; }
+        public BankUser BankUser { get; set; }
+        public int BankUserId { get; set; }
 
         public static string GenerateNumber(int length)
         {
