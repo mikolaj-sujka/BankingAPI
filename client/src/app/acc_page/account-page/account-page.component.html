@@ -18,23 +18,25 @@
                         width: 1.5rem;"alt="arrow"> <span class="ms-1 d-none d-sm-inline side-item">Options</span> </a>
                       <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                           <li class="w-100">
-                              <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline side-item ml-2">Edit Profile</span>
+                              <a routerLink='edit' class="nav-link px-0"> <span class="d-none d-sm-inline side-item ml-2">Edit Profile</span>
                               <img src="assets/img/person-circle.svg" class="ml-2" style="height: 1.5rem; 
                                 width: 1.5rem;"alt="arrow"></a>
                           </li>
                           <li>
-                              <a href="#" class="nav-link px-0"> <span class="d-none d-sm-inline side-item ml-2">Show Credit Card</span>
+                              <a routerLink='creditCard' class="nav-link px-0"> <span class="d-none d-sm-inline side-item ml-2">Show Credit Card</span>
                               <img src="assets/img/credit-card.svg" class="ml-2"style="height: 1.5rem; 
                                 width: 1.5rem;"alt="arrow"></a>
                           </li>
                       </ul>
                   </li>
+                  <li class="nav-item">
+                    <a routerLink='/account-page' class="nav-link align-middle px-0">
+                      <img src="assets/img/person-x.svg" style="height: 1.5rem; 
+                      width: 1.5rem;"alt="arrow"> <span class="ms-1 d-none d-sm-inline side-item">Delete Account</span>
+                    </a>
+                </li>
               </ul>
               <div class="pb-4">
-                    <button class="btn" type="submit">
-                        <a class="d-flex align-items-center text-decoration-none btn btn-swipe btn-delete" 
-                        >Delete Account</a>
-                    </button>
                     <button class="btn" type="submit">
                         <a class="d-flex text-center text-decoration-none btn btn-swipe" 
                         routerLink='/'>Sign out</a>
