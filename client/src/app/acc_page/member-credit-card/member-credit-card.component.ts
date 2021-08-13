@@ -1,4 +1,3 @@
-import { ThrowStmt } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
 import { take } from 'rxjs/operators';
 import { CreditCard } from 'src/app/_models/creditCard';
@@ -17,12 +16,14 @@ export class MemberCreditCardComponent implements OnInit {
   member: Member = {} as Member;
   user: User = {} as User;
   creditCard: CreditCard = {} as CreditCard;
+  dateExpires: string = {} as string;
 
   constructor(private accountService: AccountService, private memberService: MemberService) { 
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
   }
 
   ngOnInit(): void {
+    this.setCurrentUser();
     this.loadMember();
   }
 
@@ -30,7 +31,22 @@ export class MemberCreditCardComponent implements OnInit {
     this.memberService.getMember(this.user.username).subscribe(member => {
       this.member = member;
       this.creditCard = this.member.creditCard;
+      var date = this.member.creditCard.dateExpires;
+      this.dateExpires = new Date(date)
+        .toISOString().replace('-', '/').split('T')[0].replace('-', '/');
+      this.dateExpires = this.dateExpires.substring(0, this.dateExpires.length - 3);
     })
+  }
+
+  setCurrentUser(){
+    const user: User = JSON.parse(localStorage.getItem('user') || '{}');
+    this.accountService.setCurrentUser(user);
+  }
+
+  getDateExpires(){
+    var date = this.member.creditCard.dateExpires;
+    var dateExpires = date.getFullYear();
+    console.log(dateExpires);
   }
 
 }

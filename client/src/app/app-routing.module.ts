@@ -13,7 +13,6 @@ const routes: Routes = [
   {
     path: '',
     runGuardsAndResolvers: 'always',
-    canActivate: [AuthGuard],
     children: [
       {path:'account-page', component: AccountPageComponent, data: { title: 'accPage', depth: 2 }},
       {path:'account-page/edit', component: MemberEditComponent, data: { title: 'editPage', depth: 3 }},

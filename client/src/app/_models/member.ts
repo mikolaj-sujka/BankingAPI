@@ -1,6 +1,7 @@
 import { CreditCard } from "./creditCard";
 
 export interface Member{
+    [x: string]: any;
     id: number;
     username: string;
     firstName: string;

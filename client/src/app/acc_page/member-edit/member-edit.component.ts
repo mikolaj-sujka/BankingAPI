@@ -19,6 +19,7 @@ export class MemberEditComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.setCurrentUser();
     this.loadMember();
   }
 
@@ -26,6 +27,11 @@ export class MemberEditComponent implements OnInit {
     this.memberService.getMember(this.user.username).subscribe(member => {
       this.member = member;
     })
+  }
+
+  setCurrentUser(){
+    const user: User = JSON.parse(localStorage.getItem('user') || '{}');
+    this.accountService.setCurrentUser(user);
   }
 
 }

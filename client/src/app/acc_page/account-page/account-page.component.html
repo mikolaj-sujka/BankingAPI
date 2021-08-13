@@ -1,48 +1,117 @@
 <div class="container-fluid">
-  <div class="row flex-nowrap">
-      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
-          <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
-              <a class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-white text-decoration-none">
-                  <span class="fs-5 d-none d-sm-inline side-item">Welcome {{user.username}}</span>
-              </a>
-              <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
-                  <li class="nav-item">
-                      <a routerLink='/account-page' class="nav-link align-middle px-0">
-                        <img src="assets/img/house.svg" style="height: 1.5rem; 
-                        width: 1.5rem;"alt="arrow"> <span class="ms-1 d-none d-sm-inline side-item">Home</span>
-                      </a>
-                  </li>
-                  <li>
-                      <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                        <img src="assets/img/gear-wide.svg" style="height: 1.5rem; 
-                        width: 1.5rem;"alt="arrow"> <span class="ms-1 d-none d-sm-inline side-item">Options</span> </a>
-                      <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                          <li class="w-100">
-                              <a routerLink='edit' class="nav-link px-0"> <span class="d-none d-sm-inline side-item ml-2">Edit Profile</span>
-                              <img src="assets/img/person-circle.svg" class="ml-2" style="height: 1.5rem; 
-                                width: 1.5rem;"alt="arrow"></a>
-                          </li>
-                          <li>
-                              <a routerLink='creditCard' class="nav-link px-0"> <span class="d-none d-sm-inline side-item ml-2">Show Credit Card</span>
-                              <img src="assets/img/credit-card.svg" class="ml-2"style="height: 1.5rem; 
-                                width: 1.5rem;"alt="arrow"></a>
-                          </li>
-                      </ul>
-                  </li>
-                  <li class="nav-item">
-                    <a routerLink='/account-page' class="nav-link align-middle px-0">
-                      <img src="assets/img/person-x.svg" style="height: 1.5rem; 
-                      width: 1.5rem;"alt="arrow"> <span class="ms-1 d-none d-sm-inline side-item">Delete Account</span>
-                    </a>
-                </li>
-              </ul>
-              <div class="pb-4">
-                    <button class="btn" type="submit">
-                        <a class="d-flex text-center text-decoration-none btn btn-swipe" 
-                        routerLink='/'>Sign out</a>
-                    </button>
-              </div>
-          </div>
+  <div class="row">
+    <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-light">
+      <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+        <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+          <li class="nav-item">
+            <a routerLink='/account-page' class="nav-link align-middle px-0">
+              <img src="assets/img/house.svg" style="height: 1.5rem; 
+                        width: 1.5rem;" alt="arrow"> <span class="ms-1 d-none d-sm-inline side-item">Home</span>
+            </a>
+          </li>
+          <li>
+            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+              <img src="assets/img/gear-wide.svg" style="height: 1.5rem; 
+                        width: 1.5rem;" alt="arrow"> <span class="ms-1 d-none d-sm-inline side-item">Options</span>
+            </a>
+            <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+              <li class="w-100">
+                <a routerLink='edit' class="nav-link px-0"> <span class="d-none d-sm-inline side-item ml-2">Edit
+                    Profile</span>
+                  <img src="assets/img/person-circle.svg" class="ml-2" style="height: 1.5rem; 
+                                width: 1.5rem;" alt="arrow"></a>
+              </li>
+              <li>
+                <a routerLink='creditCard' class="nav-link px-0"> <span class="d-none d-sm-inline side-item ml-2">Show
+                    Credit Card</span>
+                  <img src="assets/img/credit-card.svg" class="ml-2" style="height: 1.5rem; 
+                                width: 1.5rem;" alt="arrow"></a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a routerLink='/account-page' class="nav-link align-middle px-0">
+              <img src="assets/img/person-x.svg" style="height: 1.5rem; 
+                      width: 1.5rem;" alt="arrow"> <span class="ms-1 d-none d-sm-inline side-item">Delete
+                Account</span>
+            </a>
+          </li>
+        </ul>
+        <div class="pb-4">
+          <button class="btn" type="submit">
+            <a class="d-flex text-center text-decoration-none btn btn-swipe" routerLink='/' (click)="logout()">Sign
+              out</a>
+          </button>
+        </div>
       </div>
+    </div>
+    <div class="col mr-5 mb-5 mt-4">
+      <div class="page-content page-container" id="page-content">
+        <div class="padding">
+          <div class="row container d-flex justify-content-center">
+            <div class="col-xl-6 col-md-12">
+              <div class="card user-card-full">
+                <div class="row m-l-0 m-r-0">
+                  <div class="col-sm-12 bg-c-lite-green user-profile">
+                    <div class="card-block text-center text-white">
+                    </div>
+                  </div>
+                  <div class="col-sm-12">
+                    <div class="card-block">
+                      <h6 class="m-b-20 p-b-5 b-b-default f-w-600">Information</h6>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Email</p>
+                          <h6 class="text-muted f-w-400">{{member.email}}</h6>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Username</p>
+                          <h6 class="text-muted f-w-400">{{member.username}}</h6>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">First Name</p>
+                          <h6 class="text-muted f-w-400">{{member.firstName}}</h6>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Last Name</p>
+                          <h6 class="text-muted f-w-400">{{member.lastName}}</h6>
+                        </div>
+                      </div>
+                      <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Residence</h6>
+                      <div class="row">
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Country</p>
+                          <h6 class="text-muted f-w-400">{{member.country}}</h6>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">City</p>
+                          <h6 class="text-muted f-w-400">{{member.city}}</h6>
+                        </div>
+                        <div class="col-sm-6">
+                          <p class="m-b-10 f-w-600">Postal Code</p>
+                          <h6 class="text-muted f-w-400">{{member.postalCode}}</h6>
+                        </div>
+                      </div>
+                      <ul class="social-link list-unstyled m-t-40 m-b-10">
+                        <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
+                            data-original-title="facebook" data-abc="true"><i
+                              class="mdi mdi-facebook feather icon-facebook facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
+                            data-original-title="twitter" data-abc="true"><i
+                              class="mdi mdi-twitter feather icon-twitter twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#!" data-toggle="tooltip" data-placement="bottom" title=""
+                            data-original-title="instagram" data-abc="true"><i
+                              class="mdi mdi-instagram feather icon-instagram instagram" aria-hidden="true"></i></a>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
