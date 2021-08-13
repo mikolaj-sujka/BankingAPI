@@ -11,7 +11,7 @@ import { MemberService } from 'src/app/_services/member.service';
   styleUrls: ['./member-edit.component.css']
 })
 export class MemberEditComponent implements OnInit {
-  member: Member | undefined;
+  member: Member = {} as Member;
   user: User = {} as User;
 
   constructor(private accountService: AccountService, private memberService: MemberService) { 
