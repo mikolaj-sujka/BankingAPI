@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MemberEditComponent } from './acc_page/member-edit/member-edit.component';
 import { MemberCreditCardComponent } from './acc_page/member-credit-card/member-credit-card.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,10 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
     NgbModule,
     FormsModule,
     NgxSpinnerModule,
-    BrowserAnimationsModule  
+    BrowserAnimationsModule,
+    ToastrModule.forRoot({
+      positionClass: 'toast-bottom-right'
+    })  
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},

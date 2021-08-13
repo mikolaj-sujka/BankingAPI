@@ -7,6 +7,7 @@ import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { AuthGuard } from './_guards/auth.guard';
+import { PreventUnsavedChangesGuard } from './_guards/prevent-unsaved-changes.guard';
 
 const routes: Routes = [
   {path: '', component: HomeComponent, data: { title: 'homepage', depth: 1 }},
@@ -15,7 +16,8 @@ const routes: Routes = [
     runGuardsAndResolvers: 'always',
     children: [
       {path:'account-page', component: AccountPageComponent, data: { title: 'accPage', depth: 2 }},
-      {path:'account-page/edit', component: MemberEditComponent, data: { title: 'editPage', depth: 3 }},
+      {path:'account-page/edit', component: MemberEditComponent, canDeactivate: [PreventUnsavedChangesGuard], 
+        data: { title: 'editPage', depth: 3 }},
       {path:'account-page/creditCard', component: MemberCreditCardComponent, data: { title: 'ccPage', depth: 3 }}
     ]
   },

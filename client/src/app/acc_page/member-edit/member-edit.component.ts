@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
 import { take } from 'rxjs/operators';
 import { Member } from 'src/app/_models/member';
 import { User } from 'src/app/_models/user';
@@ -11,10 +13,16 @@ import { MemberService } from 'src/app/_services/member.service';
   styleUrls: ['./member-edit.component.css']
 })
 export class MemberEditComponent implements OnInit {
+  @ViewChild('editForm') editForm!: NgForm;
   member: Member = {} as Member;
   user: User = {} as User;
-
-  constructor(private accountService: AccountService, private memberService: MemberService) { 
+  @HostListener('window:beforeunload', ['$event']) unloadNotification($event: any){
+    if(this.editForm.dirty){ 
+      $event.returnValue = true;
+    }
+  }
+  constructor(private accountService: AccountService, private memberService: MemberService,
+    private toastr: ToastrService) { 
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);
   }
 
@@ -32,6 +40,12 @@ export class MemberEditComponent implements OnInit {
   setCurrentUser(){
     const user: User = JSON.parse(localStorage.getItem('user') || '{}');
     this.accountService.setCurrentUser(user);
+  }
+
+  updateMember(){
+    console.log(this.member);
+    this.toastr.success('Profile updated successfully!');
+    this.editForm.reset(this.member);
   }
 
 }
