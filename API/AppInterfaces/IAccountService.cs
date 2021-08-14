@@ -1,7 +1,6 @@
 ﻿using System.Threading.Tasks;
 using API.DTOs;
 using API.Entities;
-using Microsoft.AspNetCore.Mvc;
 
 namespace API.AppInterfaces
 {
