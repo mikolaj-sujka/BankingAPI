@@ -19,7 +19,6 @@ import { MemberCreditCardComponent } from './acc_page/member-credit-card/member-
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { TextInputComponent } from './_validation/text-input/text-input.component';
-import { BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import { DateInputComponent } from './_validation/date-input/date-input.component';
 
 @NgModule({
@@ -46,8 +45,7 @@ import { DateInputComponent } from './_validation/date-input/date-input.componen
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
     }),
-    ReactiveFormsModule,
-    BsDatepickerModule.forRoot()
+    ReactiveFormsModule
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},

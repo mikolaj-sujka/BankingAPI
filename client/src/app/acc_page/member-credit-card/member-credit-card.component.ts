@@ -49,4 +49,23 @@ export class MemberCreditCardComponent implements OnInit {
     console.log(dateExpires);
   }
 
+  // CreditCart properties
+  get MemberCreditCardNumber(){
+    return (this.member.creditCard && this.member.creditCard.cardNumber) 
+      ? this.member.creditCard.cardNumber : null;
+  }
+
+  get MemberCreditCardCvc(){
+    return (this.member.creditCard && this.member.creditCard.cvc) 
+      ? this.member.creditCard.cvc : null;
+  }
+
+  get MemberFirstName(){
+    return (this.member && this.member.firstName) ? this.member.firstName : null;
+  }
+
+  get MemberLastName(){
+    return (this.member && this.member.lastName) ? this.member.lastName : null;
+  }
+
 }

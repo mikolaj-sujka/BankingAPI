@@ -3,10 +3,10 @@
     <div class="card">
       <div class="card__front card__part">
         <img class="card__front-square card__square" src="assets/img/logo.svg">
-        <p class="card_numer">{{member.creditCard.cardNumber}}</p>
+        <p class="card_numer">{{MemberCreditCardNumber}}</p>
         <div class="card__space-75">
           <span class="card__label">Card holder</span>
-          <p class="card__info">{{member.firstName}} {{member.lastName}}</p>
+          <p class="card__info">{{MemberFirstName}} {{MemberLastName}}</p>
         </div>
         <div class="card__space-25">
           <span class="card__label">Expires</span>
@@ -18,7 +18,7 @@
         <div class="card__black-line"></div>
         <div class="card__back-content">
           <div class="card__secret">
-            <p class="card__secret--last">{{member.creditCard.cvc}}</p>
+            <p class="card__secret--last">{{MemberCreditCardCvc}}</p>
           </div>
           <img class="card__back-square card__square" src="assets/img/logo.svg">
         </div>

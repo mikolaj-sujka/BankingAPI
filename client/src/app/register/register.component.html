@@ -19,7 +19,7 @@
         </div>
       </div>
       <div class="form-floating">
-        <app-text-input [formControl]='registerForm.controls["email"]' [label]='"Email"'></app-text-input>
+        <app-text-input [formControl]='registerForm.controls["email"]' [label]='"Email"' ngModel email></app-text-input>
       </div>
       <app-date-input [formControl]='registerForm.controls["dateOfBirth"]' [label]='"Date Of Birth"'></app-date-input>
       <div class="row g-2 no-gutters">
@@ -31,16 +31,13 @@
         </div>
       </div>
       <div class="form-floating">
-        <input id="zip" name="zip" type="text" pattern="^\s*?\d{5}(?:[-\s]\d{4})?\s*?$" class="form-control"
-          id="floatingPostalC" placeholder="20-309" formControlName="postalCode">
-          <div *ngIf="registerForm.get('postalCode').hasError('required')" class="invalid-feedback">Please enter a Postal Code</div>
-        <label for="floatingPostalC">Postal Code</label>
+        <app-text-input [formControl]='registerForm.controls["postalCode"]' [label]='"Postal Code"'></app-text-input>
       </div>
       <div class="form-floating">
-        <app-text-input [formControl]='registerForm.controls["password"]' [label]='"Password"'></app-text-input>
+        <app-text-input [formControl]='registerForm.controls["password"]' [label]='"Password"' [type]='"password"'></app-text-input>
       </div>
       <div class="form-floating">
-        <app-text-input [formControl]='registerForm.controls["confirmPassword"]' [label]='"Confirm Password"'></app-text-input>
+        <app-text-input [formControl]='registerForm.controls["confirmPassword"]' [label]='"Confirm Password"' [type]='"password"'></app-text-input>
       </div>
       <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">Sign Up</button>
     </form>

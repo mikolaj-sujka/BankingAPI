@@ -47,4 +47,33 @@ export class AccountPageComponent implements OnInit {
     this.accountService.logout();
   }
 
+  // Member properties ...
+  get MemberEmail(){
+    return (this.member && this.member.email) ? this.member.email : null;
+  }
+
+  get MemberUserName(){
+    return (this.member && this.member.username) ? this.member.username : null;
+  }
+
+  get MemberFirstName(){
+    return (this.member && this.member.firstName) ? this.member.firstName : null;
+  }
+
+  get MemberLastName(){
+    return (this.member && this.member.lastName) ? this.member.lastName : null;
+  }
+
+  get MemberCountry(){
+    return (this.member && this.member.country) ? this.member.country : null;
+  }
+
+  get MemberCity(){
+    return (this.member && this.member.city) ? this.member.city : null;
+  }
+
+  get MemberPostalCode(){
+    return (this.member && this.member.postalCode) ? this.member.postalCode : null;
+  }
+
 }

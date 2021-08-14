@@ -20,12 +20,13 @@ export class RegisterComponent implements OnInit {
 
   initializeForm(){
     this.registerForm = this.formBuilder.group({  
-      username: ['', Validators.required], 
-      firstName: ['', Validators.required], 
-      lastName: ['', Validators.required], 
+      username: ['', [Validators.required,
+        Validators.minLength(6), Validators.maxLength(20)]], 
+      firstName: ['', [Validators.required, Validators.pattern('^[a-zA-Z \-\']+')]], 
+      lastName: ['', [Validators.required, Validators.pattern('^[a-zA-Z \-\']+')]], 
       email: ['', Validators.required], 
-      city: ['', Validators.required], 
-      country: ['', Validators.required], 
+      city: ['', [Validators.required, Validators.pattern('^[a-zA-Z \-\']+')]], 
+      country: ['', [Validators.required, Validators.pattern('^[a-zA-Z \-\']+')]], 
       postalCode: ['', Validators.required], 
       dateOfBirth: ['', Validators.required],
       password: ['', [Validators.required,
