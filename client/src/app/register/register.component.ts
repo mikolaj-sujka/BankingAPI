@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AccountService } from '../_services/account.service';
 
@@ -8,15 +9,45 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  model: any = {};
+  registerForm!: FormGroup;
 
-  constructor(private accountService: AccountService, private router: Router) { }
+  constructor(private accountService: AccountService, private router: Router, 
+    private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
+    this.initializeForm();
+  }
+
+  initializeForm(){
+    this.registerForm = this.formBuilder.group({  
+      username: ['', Validators.required], 
+      firstName: ['', Validators.required], 
+      lastName: ['', Validators.required], 
+      email: ['', Validators.required], 
+      city: ['', Validators.required], 
+      country: ['', Validators.required], 
+      postalCode: ['', Validators.required], 
+      dateOfBirth: ['', Validators.required],
+      password: ['', [Validators.required,
+        Validators.minLength(8), Validators.maxLength(12)]],
+      confirmPassword: ['', [Validators.required, this.matchValues('password')]]
+    })
+
+    this.registerForm.controls.password.valueChanges.subscribe(() => {
+      this.registerForm.controls.confirmPassword.updateValueAndValidity();
+    })
+  }
+
+  matchValues(matchTo: string) : ValidatorFn {
+    return (control: AbstractControl) => {
+      return control?.value === control?.parent?.controls[matchTo].value 
+        ? null : {isMatching: true}
+    }
   }
 
   register() {
-    this.accountService.register(this.model).subscribe(response => {
+    console.log(this.registerForm.value);
+    this.accountService.register(this.registerForm.value).subscribe(response => {
       console.log(response);
       this.router.navigateByUrl('/account-page');
     }, error =>{

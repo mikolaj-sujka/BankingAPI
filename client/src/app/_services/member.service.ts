@@ -15,4 +15,13 @@ export class MemberService {
   getMember(username: string){
     return this.http.get<Member>(this.baseUrl + 'users/name/' + username);
   }
+
+  updateMember(member: Member){
+    return this.http.put(this.baseUrl + 'account', member);
+  }
+
+  deleteUser(username : string){
+    return this.http.delete(this.baseUrl + 'account/delete/' + username);
+  }
+
 }

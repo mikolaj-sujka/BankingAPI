@@ -9,7 +9,7 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { HomeComponent } from './home/home.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginComponent } from './login/login.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccountPageComponent } from './acc_page/account-page/account-page.component';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { LoadingInterceptor } from './_interceptors/loading.interceptor';
@@ -18,6 +18,9 @@ import { MemberEditComponent } from './acc_page/member-edit/member-edit.componen
 import { MemberCreditCardComponent } from './acc_page/member-credit-card/member-credit-card.component';
 import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { ToastrModule } from 'ngx-toastr';
+import { TextInputComponent } from './_validation/text-input/text-input.component';
+import { BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import { DateInputComponent } from './_validation/date-input/date-input.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,9 @@ import { ToastrModule } from 'ngx-toastr';
     LoginComponent,
     AccountPageComponent,
     MemberEditComponent,
-    MemberCreditCardComponent
+    MemberCreditCardComponent,
+    TextInputComponent,
+    DateInputComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +45,9 @@ import { ToastrModule } from 'ngx-toastr';
     BrowserAnimationsModule,
     ToastrModule.forRoot({
       positionClass: 'toast-bottom-right'
-    })  
+    }),
+    ReactiveFormsModule,
+    BsDatepickerModule.forRoot()
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},

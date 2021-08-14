@@ -25,6 +25,7 @@ namespace API.DTOs
         public string City { get; set; }
         [Required]
         public string Country { get; set; }
-        public DateTime? DateOfBirth { get; set; } // popraw DateTime
+        [Required]
+        public DateTime? DateOfBirth { get; set; }
     }
 }

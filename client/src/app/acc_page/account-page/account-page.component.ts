@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ToastrService } from 'ngx-toastr';
 import { Member } from 'src/app/_models/member';
 import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/_services/account.service';
@@ -15,7 +16,8 @@ export class AccountPageComponent implements OnInit {
   member!: Member;
   user!: User;
 
-  constructor(private accountService: AccountService, private memberService: MemberService) { }
+  constructor(private accountService: AccountService, private memberService: MemberService,
+    private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.getUser();
@@ -32,6 +34,13 @@ export class AccountPageComponent implements OnInit {
     this.memberService.getMember(this.user.username).subscribe(member => {
       this.member = member;
     })
+  }
+
+  deleteUser(){
+    this.memberService.deleteUser(this.user.username).subscribe(() =>{
+      console.log('Success');
+    });
+    this.toastr.success('Profile deleted successfully!');
   }
 
   logout(){

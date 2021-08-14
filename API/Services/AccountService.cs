@@ -5,6 +5,7 @@ using API.DTOs;
 using API.Entities;
 using AutoMapper;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
 namespace API.Services
@@ -76,6 +77,19 @@ namespace API.Services
             else
                 return null;
         }
+
+        public async Task<BankUser> DeleteAcc(string username)
+        {
+            var user = await _dataContext.Users
+                .SingleOrDefaultAsync(x => x.UserName == username.ToLower());
+            if (user == null) return null;
+
+            _dataContext.Remove(user);
+            await _dataContext.SaveChangesAsync();
+
+            return user;
+        }
+
 
         private async Task<bool> UserExists(string username, string email)
         {

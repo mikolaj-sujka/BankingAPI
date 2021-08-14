@@ -41,6 +41,7 @@ namespace API.Helpers
 
             CreateMap<CreditCard, CreditCardDto>();
             CreateMap<BankUser, MemberDto>();
+            CreateMap<MemberUpdateDto, BankUser>();
         }
     }
 }
