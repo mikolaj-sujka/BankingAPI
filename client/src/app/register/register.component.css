@@ -8,7 +8,7 @@ body{
     box-shadow: 0 0 5px 5px rgba(0,0,0, .25);
 }
 
-.signing-txt{
+.signing-txt-register{
     font-size: 2rem;
     font-style: normal;
     font-weight: 600 !important;
