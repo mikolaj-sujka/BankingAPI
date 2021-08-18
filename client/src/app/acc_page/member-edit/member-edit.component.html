@@ -59,8 +59,8 @@
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
                 <div class="form-group">
                   <label for="ciTy">City</label>
-                  <input [(ngModel)]="member.city" type="text" class="form-control" id="city" 
-                    placeholder="Enter City" name="city">
+                  <input [(ngModel)]="member.city" type="text" class="form-control" id="city" placeholder="Enter City"
+                    name="city">
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 col-12">
@@ -83,8 +83,9 @@
             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
               <div class="text-right">
                 <button type="button" id="submit" name="submit" class="btn btn-outline-danger"
-                  routerLink='/account-page'>Cancel</button>
-                <button [disabled]="!editForm.dirty" form="editForm" type="submit" id="submit" name="submit" class="btn btn-primary">Update</button>
+                  routerLink='/account-page'>Back to homepage</button>
+                <button [disabled]="!editForm.dirty" form="editForm" type="submit" id="submit" name="submit"
+                  class="btn btn-primary" routerLink='/account-page'>Update</button>
               </div>
             </div>
           </div>

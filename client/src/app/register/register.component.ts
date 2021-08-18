@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 import { AccountService } from '../_services/account.service';
 
 @Component({
@@ -12,7 +13,7 @@ export class RegisterComponent implements OnInit {
   registerForm!: FormGroup;
 
   constructor(private accountService: AccountService, private router: Router, 
-    private formBuilder: FormBuilder) { }
+    private formBuilder: FormBuilder, private toastr: ToastrService) { }
 
   ngOnInit(): void {
     this.initializeForm();
@@ -53,6 +54,7 @@ export class RegisterComponent implements OnInit {
       this.router.navigateByUrl('/account-page');
     }, error =>{
       console.log(error);
+      this.toastr.error("Some values are provided wrongly!")
     })
   }
 

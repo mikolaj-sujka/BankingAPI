@@ -31,10 +31,7 @@ export class MemberCreditCardComponent implements OnInit {
     this.memberService.getMember(this.user.username).subscribe(member => {
       this.member = member;
       this.creditCard = this.member.creditCard;
-      var date = this.member.creditCard.dateExpires;
-      this.dateExpires = new Date(date)
-        .toISOString().replace('-', '/').split('T')[0].replace('-', '/');
-      this.dateExpires = this.dateExpires.substring(0, this.dateExpires.length - 3);
+      this.getDateExpires();
     })
   }
 
@@ -45,8 +42,9 @@ export class MemberCreditCardComponent implements OnInit {
 
   getDateExpires(){
     var date = this.member.creditCard.dateExpires;
-    var dateExpires = date.getFullYear();
-    console.log(dateExpires);
+    this.dateExpires = new Date(date)
+        .toISOString().replace('-', '/').split('T')[0].replace('-', '/');
+    this.dateExpires = this.dateExpires.substring(0, this.dateExpires.length - 3);
   }
 
   // CreditCart properties

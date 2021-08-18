@@ -2,6 +2,7 @@
 using System.Threading.Tasks;
 using API.AppInterfaces;
 using API.DTOs;
+using API.Helpers;
 using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,6 +25,8 @@ namespace API.Controllers
         [HttpPost("register")]
         public async Task<ActionResult<BankUserDto>> Register(RegisterDto dto)
         {
+            if (!EmailValidator.IsValidEmail(dto.Email)) return BadRequest("Email is provided wrongly!");
+
             var newUser = await _accountService.Register(dto);
             if (newUser == null) return BadRequest("Username or Email is taken!");
 
