@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { AccountService } from '../_services/account.service';
@@ -6,24 +6,28 @@ import { AccountService } from '../_services/account.service';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
   model: any = {}
 
   constructor(public accountService: AccountService, private router: Router,
-    private toastr: ToastrService){}
+    private toastr: ToastrService){
+
+    }
 
   ngOnInit(): void {
   }
 
   login(){
     this.accountService.login(this.model).subscribe(response => {
-      console.log(response);
       this.router.navigateByUrl('/account-page');
     }, error => {
       console.log(error);
-      this.toastr.error("Username or password does not match!");
+      this.toastr.error("Username or password does not match!", "Login error", {
+        positionClass: 'toast-top-center'
+      });
     })
   }
 

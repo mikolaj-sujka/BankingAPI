@@ -2,10 +2,9 @@
     <input 
         type="date"
         [class.is-invalid]='ngControl.touched && ngControl.invalid'
-        class='form-control'
+        class='form-control form-register'
         [formControl]='ngControl.control'
         placeholder="{{label}}"
     >
-    <label for="floatingInput">{{label}}</label>
     <div *ngIf="ngControl.control.errors?.required" class="invalid-feedback">{{label}} is required</div>
 </div>

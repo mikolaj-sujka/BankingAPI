@@ -4,7 +4,6 @@ import { Member } from 'src/app/_models/member';
 import { User } from 'src/app/_models/user';
 import { AccountService } from 'src/app/_services/account.service';
 import { MemberService } from 'src/app/_services/member.service';
-import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-account-page',
@@ -38,7 +37,6 @@ export class AccountPageComponent implements OnInit {
 
   deleteUser(){
     this.memberService.deleteUser(this.user.username).subscribe(() =>{
-      console.log('Success');
     });
     this.toastr.success('Profile deleted successfully!');
   }

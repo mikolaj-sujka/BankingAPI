@@ -1,0 +1,55 @@
+body{
+    background-color: rgba(0, 0, 139, 0.7);
+}
+
+.img-login{
+    margin-left: 8rem;
+    margin-top: 1.5rem;
+}
+
+.content{
+    margin: 8%;
+    background-color: #fff;
+    padding: 4rem 2rem 4rem 2rem;
+    box-shadow: 0 0 5px 5px rgba(0,0,0, .25);
+}
+
+.signing-txt{
+    font-size: 1.5rem;
+    font-style: normal;
+    font-weight: 600 !important;
+}
+
+.form-login{
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    border-color: #00008B;
+    border-style: solid;
+    border-width: 0 0 1px 0;
+    padding: 1.5rem 1.5rem 0.9rem 1.5rem !important;
+    height: auto;
+    border-radius: 0;
+    background-color: #fff;
+    background-clip: padding-box;
+}
+
+.form-login:focus{
+    color: #495057;
+    background-color: #fff;
+    border-color: #fff;
+    outline: 0;
+    box-shadow: none;
+}
+
+.btn-login{
+    border-color: #00008B;
+    color: #00008B;
+}
+
+.btn-login:hover{
+    background-color:  rgba(0, 0, 139, 0.7);
+    color: #fff;
+}

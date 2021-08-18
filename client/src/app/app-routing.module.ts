@@ -21,7 +21,7 @@ const routes: Routes = [
       {path:'account-page/creditCard', component: MemberCreditCardComponent, data: { title: 'ccPage', depth: 3 }}
     ]
   },
-  {path:'account/login', component: LoginComponent, data: { title: 'loginPage', depth: 2 }},
+  {path:'account/login', component: LoginComponent, data: { title: 'loginPage', depth: 2, bodyClass: 'login'}},
   {path:'account/register', component: RegisterComponent, data: { title: 'registerPage', depth: 2 }}
 ];
 

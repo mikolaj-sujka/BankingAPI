@@ -17,7 +17,7 @@ export class MemberService {
   }
 
   updateMember(member: Member){
-    return this.http.put(this.baseUrl + 'account', member);
+    return this.http.put<Member>(this.baseUrl + 'account', member);
   }
 
   deleteUser(username : string){

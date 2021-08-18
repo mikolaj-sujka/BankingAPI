@@ -1,39 +1,47 @@
 <!-- Login -->
-<div class="d-flex justify-content-center mt-5 text-center">
-    <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
-        <div class="img">
-            <a routerLink='/' routerLinkActive='active'>
-                <img class="mt-5" src="assets/img/logo.svg"  
-                alt="" width="72" height="57">
-            </a>
-        </div>
-        <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
-      
-        <div class="form-floating mt-1">
-            <input 
-                name="username"
-                [(ngModel)]="model.username"
-                type="text" 
-                class="form-control" 
-                id="floatingInput" 
-                placeholder="username"
+<div class="container">
+    <div class="row g-0 content">
+        <div class="col-md-6 mb-3 mt-5">
+            <img 
+                class="img-fluid w-50 img img-login" 
+                src="assets/img/login.svg" 
+                alt=""
             >
-            <label for="floatingInput">Username</label>
         </div>
-        <div class="form-floating">
-            <input 
-                name="password"
-                [(ngModel)]="model.password"
-                type="password" 
-                class="form-control" 
-                id="floatingPassword" 
-                placeholder="Password"
-            >
-            <label for="floatingPassword">Password</label>
+        <div class="col-md-6">
+            <div class="d-flex justify-content-center text-center mr-5 mt-5">
+                <form #loginForm="ngForm" (ngSubmit)="login()" autocomplete="off">
+                    <h1 class="h3 mb-3 fw-normal text-left signing-txt">Sign in</h1>
+                  
+                    <div class="form-floating mt-1">
+                        <input 
+                            name="username"
+                            [(ngModel)]="model.username"
+                            type="text" 
+                            class="form-control form-login" 
+                            id="floatingInput" 
+                            placeholder="username"
+                        >
+                        <label for="floatingInput">Username</label>
+                    </div>
+                    <div class="form-floating">
+                        <input 
+                            name="password"
+                            [(ngModel)]="model.password"
+                            type="password" 
+                            class="form-control form-login" 
+                            id="floatingPassword" 
+                            placeholder="Password"
+                        >
+                        <label for="floatingPassword">Password</label>
+                    </div>
+                    <button class="w-100 btn btn-login btn-lg mt-4" type="submit">Sign in</button>
+                </form>
+            </div> 
         </div>
-        <button class="w-100 btn btn-lg btn-primary mt-4" type="submit">Sign in</button>
-    </form>
-</div> 
+    </div>
+</div>
+
   
   
       
