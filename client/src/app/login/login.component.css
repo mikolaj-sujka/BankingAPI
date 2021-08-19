@@ -1,7 +1,3 @@
-body{
-    background-color: rgba(0, 0, 139, 0.7);
-}
-
 .img-login{
     margin-left: 8rem;
     margin-top: 1.5rem;
@@ -11,7 +7,7 @@ body{
     margin: 8%;
     background-color: #fff;
     padding: 4rem 2rem 4rem 2rem;
-    box-shadow: 0 0 2px 2px rgba(0,0,0, .25);
+    box-shadow: 0 0 1rem 1rem rgba(0,0,0, .25);
 }
 
 .signing-txt-login{

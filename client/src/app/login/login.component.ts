@@ -7,7 +7,6 @@ import { AccountService } from '../_services/account.service';
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  encapsulation: ViewEncapsulation.None
 })
 export class LoginComponent implements OnInit {
   model: any = {}
