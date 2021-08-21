@@ -20,6 +20,7 @@ import { JwtInterceptor } from './_interceptors/jwt.interceptor';
 import { ToastrModule } from 'ngx-toastr';
 import { TextInputComponent } from './_validation/text-input/text-input.component';
 import { DateInputComponent } from './_validation/date-input/date-input.component';
+import { AuthGuard } from './_guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { DateInputComponent } from './_validation/date-input/date-input.componen
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true},
-    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true}
+    {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true},
+    AuthGuard
   ],
   bootstrap: [AppComponent]
 })
