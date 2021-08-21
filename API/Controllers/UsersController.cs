@@ -24,13 +24,13 @@ namespace API.Controllers
         [HttpGet("{id}")]
         public async Task<ActionResult<MemberDto>> GetUserById(int id)
         {
-            return await _userRepo.GetMemberByIdAsync(id);
+            return Ok(await _userRepo.GetMemberByIdAsync(id));
         }
 
         [HttpGet("name/{username}")]
         public async Task<ActionResult<MemberDto>> GetUserByUsername(string username)
         {
-            return await _userRepo.GetMemberAsync(username);
+            return Ok(await _userRepo.GetMemberAsync(username));
         }
     }
 }
