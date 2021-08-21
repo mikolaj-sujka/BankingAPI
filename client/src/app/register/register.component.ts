@@ -10,7 +10,7 @@ import { AccountService } from '../_services/account.service';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
-  registerForm!: FormGroup;
+  registerForm: FormGroup;
 
   constructor(private accountService: AccountService, private router: Router, 
     private formBuilder: FormBuilder, private toastr: ToastrService) { }

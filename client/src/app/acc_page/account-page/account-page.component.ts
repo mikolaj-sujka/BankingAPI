@@ -11,9 +11,9 @@ import { MemberService } from 'src/app/_services/member.service';
   styleUrls: ['./account-page.component.css']
 })
 export class AccountPageComponent implements OnInit {
-  username!: string;
-  member!: Member;
-  user!: User;
+  username: string;
+  member: Member;
+  user: User;
 
   constructor(private accountService: AccountService, private memberService: MemberService,
     private toastr: ToastrService) { }
@@ -36,6 +36,7 @@ export class AccountPageComponent implements OnInit {
   }
 
   deleteUser(){
+    this.logout();
     this.memberService.deleteUser(this.user.username).subscribe(() =>{
     });
     this.toastr.success('Profile deleted successfully!');
