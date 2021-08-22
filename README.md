@@ -8,18 +8,33 @@ Simple Banking Web API
 
 ## Endpoints
 
+### Default url 
+`https://localhost:5001/api/`
+
+## Get all users
 ### Request
 `GET /users`
-- Return all users
 
+## Get user by id
 ### Request
-`GET /api/users/{id}`
-- Return user with specific id
+`GET /users/{id}`
 
+## Get user by username
 ### Request
-`GET /api/users/name/{username}`
-- Return user with specific username
+`GET /users/name/{username}`
 
+## Register user
 ### Request
-`POST /api/account/register`
-- Register new user, return username and JWT
+`POST /account/register`
+
+## Login user
+### Request
+`POST /account/login`
+
+## Update user
+### Request
+`PUT /account`
+
+## Delete user
+### Request
+`DELETE /account/delete/{username}`
