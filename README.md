@@ -1,2 +1,5 @@
-# BankingAPI
-Simple Banking Web API using .NET, Angular etc.
+# Banking App
+Simple Banking Web API 
+
+# Technologies
+
