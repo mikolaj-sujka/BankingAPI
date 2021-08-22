@@ -16,7 +16,7 @@ export class MemberCreditCardComponent implements OnInit {
   member: Member = {} as Member;
   user: User = {} as User;
   creditCard: CreditCard = {} as CreditCard;
-  dateExpires: string = {} as string;
+  dateExpires: string;
 
   constructor(private accountService: AccountService, private memberService: MemberService) { 
     this.accountService.currentUser$.pipe(take(1)).subscribe(user => this.user = user);

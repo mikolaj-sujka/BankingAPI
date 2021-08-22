@@ -45,6 +45,8 @@ namespace API.Controllers
         [HttpPut]
         public async Task<ActionResult> UpdateUser(MemberUpdateDto member)
         {
+            if (!EmailValidator.IsValidEmail(member.Email)) return BadRequest("Email is provided wrongly!");
+
             var username = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
             var user = await _bankUserRepository.GetUserByUsernameAsync(username);
 

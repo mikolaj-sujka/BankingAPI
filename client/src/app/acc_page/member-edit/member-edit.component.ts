@@ -46,6 +46,10 @@ export class MemberEditComponent implements OnInit {
     this.memberService.updateMember(this.member).subscribe(() => {
       this.toastr.success('Profile updated successfully!');
       this.editForm.reset(this.member);
+      this.loadMember();
+    }, error => {
+      console.error(error);
+      this.toastr.error('Some values are provided wrongly');
     })
   }
 
