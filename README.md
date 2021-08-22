@@ -7,7 +7,7 @@ Every user's data is stored in database (SQLite) and its divided for two tables:
 
 In app we can find animations written in CSS and also ngx spinner to simulate loading data (between every http request). 
 
-For kind of security I'm using hash algorithm to encrypt password, JWT for every logged user and auth guard which avoids logged out users to get to the specific url.
+For kind of security I'm using hash algorithm to encrypt password, JWT for every logged user and auth guard which avoids logged out users to get to the specific url. Also DTOs help us to hide users' data.
 
 # Technologies
 - C#, .NET, Angular & TS, HTML, CSS, Bootstrap 5, SQLite
